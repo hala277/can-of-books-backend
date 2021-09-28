@@ -9,6 +9,9 @@ const server = express();
 server.use(cors());
 const PORT = process.env.PORT;
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/books');
+
 const getBooksHandler = require('./modules/books')
 
 server.get('/', homeHandler);

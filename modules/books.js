@@ -1,12 +1,12 @@
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/books');
+
 
 const booksSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    status: String,
-    email: String
+    title:String,
+    description:String,
+    status:String,
+    email:String
 });
 
 
