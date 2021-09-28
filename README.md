@@ -33,3 +33,16 @@ Start time: __3:00pm___
 Finish time: __9:00pm___
 
 Actual time needed to complete: __1:30m___
+
+----------------
+
+Name of feature: ____________Add and deleate data from mongo db____________________
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: ___3 hour__
+
