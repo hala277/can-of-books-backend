@@ -24,7 +24,7 @@ mongoose.connect(`${process.env.MONGO_SERVER_LINK}`);
 const {getBooksHandler} = require('./modules/books')
 const {addBooksHandler} = require('./modules/books')
 const {deleteBooksHandler} = require('./modules/books')
-
+const {updateBooksHandler} = require('./modules/books')
 
 
 
@@ -32,6 +32,8 @@ server.get('/', homeHandler);
 server.get('/books',getBooksHandler)
 server.post('/addBooks',addBooksHandler)
 server.delete('/deleteBooks',deleteBooksHandler)
+server.put('/updateBook',updateBooksHandler)
+
 
 // server.get('/addBooks',addBooksHandler)
 
