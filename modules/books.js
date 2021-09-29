@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 
+
 const booksSchema = new mongoose.Schema({
     title:String,
     description:String,
@@ -21,21 +22,21 @@ function sedBooksInfo() {
     })
 
     const leen = new booksModel({
-        title: 'lesrn java',
+        title: 'learn java',
         description: 'book about learning java',
         status: 'done',
         email: 'hala277.almasharfeh277@gmail.com'
     })
 
     const baraaa = new booksModel({
-        title: 'lesrn CSS',
+        title: 'learn CSS',
         description: 'book about learning CSS',
         status: 'done',
         email: 'hala277.almasharfeh277@gmail.com'
     })
 
     const bayan = new booksModel({
-        title: 'lesrn HTML',
+        title: 'learn HTML',
         description: 'book about learning HTML',
         status: 'done',
         email: 'hala277.almasharfeh277@gmail.com'

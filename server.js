@@ -12,7 +12,14 @@ const PORT = process.env.PORT;
 server.use(express.json());
 // const booksModel = mongoose.model('books', booksSchema);
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/books');
+mongoose.connect(`${process.env.MONGO_SERVER_LINK}`);
+
+
+
+
+// const url = "";
+// const client = new MongoClient(url);
+// 'mongodb://localhost:27017/books'
 
 const {getBooksHandler} = require('./modules/books')
 const {addBooksHandler} = require('./modules/books')
