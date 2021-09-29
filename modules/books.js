@@ -56,7 +56,7 @@ function getBooksHandler (request, response){
             console.log('error in getting data',error)
         }
         else{
-            console.log(emailData)
+            // console.log(emailData)
             response.send(emailData)
         }
     })
@@ -89,7 +89,7 @@ console.log(request.body);
         console.log('error in getting data',error)
     }
     else{
-        console.log(emailData)
+        // console.log(emailData)
         response.send(emailData)
     }
 })
@@ -137,9 +137,35 @@ console.log(request.body);
 //    })
 }
 
+function updateBooksHandler(request, response){
+  console.log('update dataaa',request.body)
+  let {title,description,status,bookID,email} = request.body;
+  booksModel.findByIdAndUpdate(bookID,{title,description,status},(error,updatedData) =>{
+      if(error){
+          console.log('error in update data')
+      }
+      else{
+          console.log('updatedData',updatedData)
+          booksModel.find({email:email},function(error,emailData){
+       
+            if(error){
+                console.log('error in getting data',error)
+            }
+            
+            else{
+                // console.log(emailData)
+                response.send(emailData)
+            }
+        })
+      }
+  })
+
+}
+
 module.exports ={ 
 getBooksHandler,
  addBooksHandler,
-deleteBooksHandler
+deleteBooksHandler,
+updateBooksHandler
 }
 
