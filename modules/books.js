@@ -72,10 +72,16 @@ console.log(request.body);
 
    let {email,title,description,status} = request.body;
 
-   const newBook = new booksModel({ email, title, description, status})
+//    const newBook = new booksModel({ email, title, description, status})
 //    I have to try using .then here
 // I have to take a look for the other way using creat
-  await newBook.save();
+  await booksModel.create({
+    email:email,
+    title:title,
+    description:description,
+    status:status
+  })
+  
   
    booksModel.find({email:email},function(error,emailData){
     if(error){
@@ -89,16 +95,18 @@ console.log(request.body);
 }
 
 // /deleteBooks?bookID=${bookID}&email={emailD}
- function deleteBooksHandler(request, response){
+   function deleteBooksHandler(request, response){
    let bookID = request.query.bookID;
    let email = request.query.email;
 
 
    booksModel.deleteOne({_id:bookID}).then(() => {
     booksModel.find({email:email},function(error,emailData){
+       
         if(error){
             console.log('error in getting data',error)
         }
+        
         else{
             // console.log(emailData)
             response.send(emailData)
@@ -108,13 +116,14 @@ console.log(request.body);
    
 
 
-//    booksModel.remove({_id:bookID},(error,deletedData)=>{
+//  booksModel.remove({_id:bookID},(error,deletedData)=>{
 //        if(error){
 //            console.log('error in deleting book data')
 //        }
 //        else{
 //            console.log('deleted data',deletedData)
-//            booksModel.find({email:email},function(error,emailData){
+
+//             booksModel.find({email:email},function(error,emailData){
 //             if(error){
 //                 console.log('error in getting data',error)
 //             }
@@ -127,8 +136,9 @@ console.log(request.body);
 //    })
 }
 
-module.exports = getBooksHandler;
-module.exports = addBooksHandler;
-module.exports = deleteBooksHandler;
-
+module.exports ={ 
+getBooksHandler,
+ addBooksHandler,
+deleteBooksHandler
+}
 
