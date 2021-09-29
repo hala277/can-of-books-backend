@@ -14,9 +14,9 @@ server.use(express.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/books');
 
-const getBooksHandler = require('./modules/books')
-const addBooksHandler = require('./modules/books')
-const deleteBooksHandler = require('./modules/books')
+const {getBooksHandler} = require('./modules/books')
+const {addBooksHandler} = require('./modules/books')
+const {deleteBooksHandler} = require('./modules/books')
 
 
 
